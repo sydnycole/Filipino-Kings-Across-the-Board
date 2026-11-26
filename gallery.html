@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filipino Kings Across the Board | Grandmasters Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body class="subpage">
+
+  <nav class="top-navbar">
+    <a href="index.html" class="nav-brand"><span>♔</span> FILIPINO KINGS ACROSS THE BOARD</a>
+    <div class="nav-links">
+      <a href="index.html">Interactive Board</a>
+      <a href="gallery.html" class="active">Grandmasters Gallery</a>
+      <a href="about.html">About Rules</a>
+    </div>
+  </nav>
+
+  <main class="page-container">
+    <header class="page-hero">
+      <h1>Philippine Chess Grandmasters Gallery</h1>
+      <h2>19 Filipino Legends Featured Across the Board</h2>
+      <p>
+        Browse all 19 Filipino Grandmasters and Woman Grandmasters featured in our interactive chessboard.
+        Click <strong>View on Board</strong> on any portrait to open their career ratings, biography, and top 10 openings directly on the
+        <a href="index.html" style="color: #95bb4a; font-weight: 700;">Interactive Board</a>.
+      </p>
+    </header>
+
+    <section class="content-section" id="portraits">
+      <h3>Grandmaster Portrait Directory</h3>
+      <h6>All 19 Competitors</h6>
+      <div id="gm-gallery-grid" class="gm-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Filipino Kings Across the Board • College Final Project</span>
+    <div class="footer-links">
+      <a href="index.html">Interactive Board</a>
+      <a href="gallery.html">Grandmasters Gallery</a>
+      <a href="about.html">About Rules</a>
+    </div>
+  </footer>
+
+  <script src="players.js"></script>
+  <script>
+    const grid = document.getElementById("gm-gallery-grid");
+
+    if (typeof competitorData !== "undefined" && grid) {
+      Object.keys(competitorData).forEach(function (key) {
+        const p = competitorData[key];
+        const parts = key.split("-");
+        const square = parts[parts.length - 1].toUpperCase();
+
+        const card = document.createElement("div");
+        card.className = "gm-card";
+        card.innerHTML =
+          '<img src="' + p.photo + '" alt="' + p.name + '" />' +
+          '<h4>' + p.name + '</h4>' +
+          '<p class="gm-meta">Square ' + square + ' • ' + p.role + '</p>' +
+          '<a href="index.html?player=' + encodeURIComponent(key) + '">View on Board</a>';
+        grid.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

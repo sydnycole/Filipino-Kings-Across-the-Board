@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filipino Kings Across the Board | Interactive Board</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="modal.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body>
+
+  <nav class="top-navbar">
+    <a href="index.html" class="nav-brand"><span>♔</span> FILIPINO KINGS ACROSS THE BOARD</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Interactive Board</a>
+      <a href="gallery.html">Grandmasters Gallery</a>
+      <a href="about.html">About Rules</a>
+    </div>
+  </nav>
+
+  <button id="menu-btn" class="menu-btn" aria-label="Open Chess Guide" title="Chess Basics & Pieces">♕</button>
+
+  <div id="drawer-backdrop" class="drawer-backdrop hidden"></div>
+
+  <aside id="guide-drawer" class="guide-drawer">
+    <div class="drawer-header">
+      <button id="close-drawer-btn" class="close-drawer-btn" aria-label="Close Menu"></button>
+      <span class="drawer-brand">♕ CHESS GUIDE</span>
+    </div>
+
+    <div class="drawer-body">
+      <div class="guide-section">
+        <h2>What is Chess?</h2>
+        <p>
+          Chess is a two-player strategy board game played on a 64-square board.
+          Each player begins with 16 pieces, takes turns making legal moves, and
+          tries to checkmate the opponent's king.
+        </p>
+      </div>
+
+      <div class="guide-section">
+        <h2>The Chess Pieces</h2>
+        <p class="guide-hint">Select a piece to view how it moves:</p>
+        <div id="piece-accordion" class="accordion"></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="board-area">
+    <h1>Select a Grandmaster Portrait or Chess Piece to Inspect</h1>
+    <div id="chessboard" class="chessboard"></div>
+  </main>
+
+  <div id="info-modal" class="modal hidden">
+    <div id="modal-card" class="modal-content">
+      <button id="close-btn" class="close-btn"></button>
+
+      <div class="modal-tabs">
+        <button class="tab-btn active" data-tab="tab-profile">Player Profile Stats</button>
+        <button class="tab-btn" data-tab="tab-about">About</button>
+        <button class="tab-btn" data-tab="tab-openings">Top 10 Openings Boards</button>
+      </div>
+
+      <div id="tab-profile" class="tab-pane active">
+        <div class="profile-layout">
+          <img id="modal-img" class="modal-img" src="" alt="Competitor Photo" />
+
+          <div class="profile-details">
+            <div class="name-fed-row">
+              <h2 id="modal-name">Player Name</h2>
+              <span id="modal-federation" class="fed-badge">🇵🇭 PHILIPPINES</span>
+            </div>
+            <p id="modal-role" class="modal-role">Active since 1970 • Grandmaster • FIDE ID: 5223516</p>
+
+            <div class="stats-stack">
+              <div class="stats-box">
+                <div class="stats-header">Rating</div>
+                <div class="stats-row cols-2">
+                  <div class="stat-item"><span class="stat-label">Peak</span><span id="modal-peak-rating" class="stat-value">2580 (1983)</span></div>
+                  <div class="stat-item"><span class="stat-label">Current</span><span id="modal-current-rating" class="stat-value">2423</span></div>
+                </div>
+              </div>
+
+              <div class="stats-box">
+                <div class="stats-header">All Games</div>
+                <div class="stats-row cols-2">
+                  <div class="stat-item"><span class="stat-label">All</span><span id="modal-all-games" class="stat-value">2042</span></div>
+                  <div class="stat-item"><span class="stat-label">Ratio</span><span id="modal-ratio" class="stat-value">36.53</span></div>
+                </div>
+              </div>
+
+              <div class="stats-box">
+                <div class="stats-header">White</div>
+                <div class="stats-row cols-3">
+                  <div class="stat-item"><span class="stat-label">Wins</span><span id="modal-white-wins" class="stat-value">410</span></div>
+                  <div class="stat-item"><span class="stat-label">Losses</span><span id="modal-white-losses" class="stat-value">149</span></div>
+                  <div class="stat-item"><span class="stat-label">Draws</span><span id="modal-white-draws" class="stat-value">462</span></div>
+                </div>
+              </div>
+
+              <div class="stats-box">
+                <div class="stats-header">Black</div>
+                <div class="stats-row cols-3">
+                  <div class="stat-item"><span class="stat-label">Wins</span><span id="modal-black-wins" class="stat-value">336</span></div>
+                  <div class="stat-item"><span class="stat-label">Losses</span><span id="modal-black-losses" class="stat-value">252</span></div>
+                  <div class="stat-item"><span class="stat-label">Draws</span><span id="modal-black-draws" class="stat-value">433</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-about" class="tab-pane">
+        <div class="bio-layout">
+          <div class="bio-photo-col">
+            <img id="bio-tab-img" class="bio-img" src="" alt="Competitor Portrait" />
+            <span class="bio-photo-caption">Competitor Portrait</span>
+          </div>
+
+          <div class="bio-text-col">
+            <h2 id="bio-tab-name">Player Name</h2>
+            <p id="bio-tab-personal" class="bio-personal-line">BIRTHDATE • BIRTHPLACE • ALMA MATER</p>
+            <div class="bio-divider"></div>
+            <p id="modal-bio" class="modal-bio">Full details go here.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-openings" class="tab-pane">
+        <div class="openings-viewer">
+          <div class="openings-lists">
+            <div class="opening-group">
+              <h3>Top 5 Openings as White</h3>
+              <div id="white-opening-btns" class="opening-btn-list"></div>
+            </div>
+
+            <div class="opening-group">
+              <h3>Top 5 Openings as Black</h3>
+              <div id="black-opening-btns" class="opening-btn-list"></div>
+            </div>
+          </div>
+
+          <div class="opening-preview-card">
+            <span id="preview-side-badge" class="side-badge">WHITE OPENING</span>
+            <h3 id="preview-opening-title">Queen's Pawn Game</h3>
+            <p id="preview-opening-moves" class="opening-moves">1. d4</p>
+
+            <div class="opening-img-wrapper">
+              <img id="preview-opening-img" src="" alt="Opening Board" />
+              <div id="preview-placeholder" class="img-placeholder">
+                <span class="placeholder-icon">♟</span>
+                <p id="placeholder-label">Board Diagram Placeholder</p>
+                <small id="placeholder-filename">Save screenshot as: white-opening-1.png</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="fact-modal" class="modal hidden">
+    <div class="modal-content fact-modal-card">
+      <button id="close-fact-btn" class="close-btn"></button>
+      <div class="fact-layout">
+        <div id="fact-icon" class="fact-emblem">♟</div>
+        <div class="fact-details">
+          <span id="fact-badge" class="fact-badge">CHESS TRIVIA</span>
+          <h2 id="fact-title">Fun Fact Title</h2>
+          <div class="fact-divider"></div>
+          <p id="fact-text" class="fact-text">Fun fact description goes here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="guide.js"></script>
+  <script src="players.js"></script>
+  <script src="facts.js"></script>
+  <script src="pieces.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
