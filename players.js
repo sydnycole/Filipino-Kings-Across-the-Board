@@ -139,8 +139,8 @@ function p(photo, name, fed, active, role, peak, curr, all, ratio, white, black,
     photo: "ICONS/" + photo, bioPhoto: "ICONS/" + photo, name: name, federation: flag,
     activeSince: "Active: " + active, role: role, peakRating: peak, currentRating: curr,
     allGames: all, ratio: ratio,
-    whiteWins: white, whiteLosses: white, whiteDraws: white,
-    blackWins: black, blackLosses: black, blackDraws: black,
+    whiteWins: white.at(0), whiteLosses: white.at(1), whiteDraws: white.at(2),
+    blackWins: black.at(0), blackLosses: black.at(1), blackDraws: black.at(2),
     personalInfo: info, bio: bio,
     openings: {
       white: mapOps(wOps, files.white, "white-opening-"),
@@ -148,6 +148,7 @@ function p(photo, name, fed, active, role, peak, curr, all, ratio, white, black,
     }
   };
 }
+
 
 
 
@@ -196,7 +197,7 @@ const competitorData = {
   
   "black-rook-h8": p("Wesley So.jpg", "Wesley Barbossa So", "US", "Since 2005", "Grandmaster • FIDE ID: 5202213", "2822 (2017)", "2771", "5438", "61.67%", ["1265","402","1068"], ["954","548","1201"],
     "October 9, 1993 • Bacoor, Cavite • Jesus Good Shepherd School; Saint Francis of Assisi College; Webster University (Finance/Accounting)",
-    "Wesley Barbossa So is the eighth Filipino-American Grandmaster. He is a three-time Philippine Chess Champion, a four-time U.S. Chess Champion, and the first FIDE World Fischer Random Chess Champion, defeating Magnus Carlsen. On the March 2017 FIDE rating list, he was ranked number two in the world and had an Elo rating of 2822, making him the fifth highest-rated player in history and the 11th player to pass 2800 Elo. So became the youngest player to pass a 2600 Elo rating in October 2008, breaking the record previously held by Magnus Carlsen. He is the youngest Filipino to achieve three IM Norms in just four months, becoming an International Master in 2006, and the youngest Filipino Grandmaster at the age of 14 and the 7th youngest in history to reach the title in 2008.\n\nSo represented the Philippines until his transfer to the United States in 2014, where he won several tournaments representing the federation, including the 42nd Chess Olympiad where he secured team and individual gold medals.\n\nSome of his notable accomplishments include taking first place at the 2003 Philippine National Chess Championships at 10 years old and securing individual golds and a team silver in the ASEAN Open in 2004 and 2005. He made his first Olympiad appearance at the 37th Chess Olympiad held in Turin, Italy in 2006, and in 2007 he became the Philippine National Junior Chess Champion. In 2020, he amassed a score of 9/11, the third-best score in U.S. National Championships history, and in November 2022 he beat Hikaru Nakamura to win the first-ever Chess.com Global Championship.\n\nHe also has a [documentary](https://youtube.com) about his life that was produced by Chess.com in 2025.",
+    "Wesley Barbossa So is the eighth Filipino-American Grandmaster. He is a three-time Philippine Chess Champion, a four-time U.S. Chess Champion, and the first FIDE World Fischer Random Chess Champion, defeating Magnus Carlsen. On the March 2017 FIDE rating list, he was ranked number two in the world and had an Elo rating of 2822, making him the fifth highest-rated player in history and the 11th player to pass 2800 Elo. So became the youngest player to pass a 2600 Elo rating in October 2008, breaking the record previously held by Magnus Carlsen. He is the youngest Filipino to achieve three IM Norms in just four months, becoming an International Master in 2006, and the youngest Filipino Grandmaster at the age of 14 and the 7th youngest in history to reach the title in 2008.\n\nSo represented the Philippines until his transfer to the United States in 2014, where he won several tournaments representing the federation, including the 42nd Chess Olympiad where he secured team and individual gold medals.\n\nSome of his notable accomplishments include taking first place at the 2003 Philippine National Chess Championships at 10 years old and securing individual golds and a team silver in the ASEAN Open in 2004 and 2005. He made his first Olympiad appearance at the 37th Chess Olympiad held in Turin, Italy in 2006, and in 2007 he became the Philippine National Junior Chess Champion. In 2020, he amassed a score of 9/11, the third-best score in U.S. National Championships history, and in November 2022 he beat Hikaru Nakamura to win the first-ever Chess.com Global Championship.\n\nHe also has a [documentary](https://www.youtube.com/watch?v=a6nPdA0mxJc) about his life that was produced by Chess.com in 2025.",
     ["Sicilian Defense", "Ruy López", "Giuoco Piano", "Nimzo-Indian Defense", "King's Indian Defense"],
     ["Ruy López", "Sicilian Defense", "Queen's Pawn Opening", "Giuoco Piano", "Queen's Gambit Declined"]),
 
